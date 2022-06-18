@@ -34,17 +34,8 @@ startBtn.addEventListener('click', () => {
     h.textContent = `${hours}`;
     m.textContent = `${minutes}`;
     s.textContent = `${seconds}`;
-    // ocloce(days, hours, minutes, seconds);
   }, 1000);
 });
-
-// function ocloce(days, hours, minutes, seconds) {
-//   console.log('🚀 ~ seconds', seconds);
-//   console.log('🚀 ~ minutes', minutes);
-//   console.log('🚀 ~ hours', hours);
-//   console.log('🚀 ~ days', days);
-
-// }
 
 function realTime() {
   return new Date().getTime();
@@ -54,8 +45,10 @@ function isValid(a) {
   const time = realTime();
   if (a < time) {
     Notify.failure('Please choose a date in the future');
+    return;
   }
   startBtn.removeAttribute('disabled');
+  return;
 }
 
 function addLeadingZero(daysp, hoursp, minutesp, secondsp) {
